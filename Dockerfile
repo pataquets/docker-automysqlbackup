@@ -11,6 +11,7 @@ RUN \
   rm -rf /var/lib/apt/lists/*
 
 RUN \
-  sed -i 's/DBHOST=localhost/DBHOST=mysql/' /etc/default/automysqlbackup
+  sed -i 's/DBHOST=localhost/DBHOST=mysql/' /etc/default/automysqlbackup && \
+  sed -i 's/MAILCONTENT="quiet"/MAILCONTENT="stdout"/' /etc/default/automysqlbackup
 
 ENTRYPOINT [ "automysqlbackup" ]
